@@ -78,29 +78,42 @@ describe("UCSBDiningCommonsMenuItemTable tests", () => {
     });
 
     expect(screen.getByTestId(`${testId}-cell-row-0-col-id`)).toHaveTextContent(
-      "2",
+      "1",
     );
     expect(
       screen.getByTestId(`${testId}-cell-row-0-col-name`),
-    ).toHaveTextContent("Tacos");
+    ).toHaveTextContent("Spaghetti");
     expect(
       screen.getByTestId(`${testId}-cell-row-0-col-diningCommonsCode`),
-    ).toHaveTextContent("portola");
+    ).toHaveTextContent("ortega");
     expect(screen.getByTestId(`${testId}-cell-row-0-col-station`)).toHaveTextContent(
+      "Pasta Station",
+    );
+
+    expect(screen.getByTestId(`${testId}-cell-row-1-col-id`)).toHaveTextContent(
+      "2",
+    );
+    expect(
+      screen.getByTestId(`${testId}-cell-row-1-col-name`),
+    ).toHaveTextContent("Tacos");
+    expect(
+      screen.getByTestId(`${testId}-cell-row-1-col-diningCommonsCode`),
+    ).toHaveTextContent("portola");
+    expect(screen.getByTestId(`${testId}-cell-row-1-col-station`)).toHaveTextContent(
       "Mexican Station",
     );
 
 
-    expect(screen.getByTestId(`${testId}-cell-row-1-col-id`)).toHaveTextContent(
+    expect(screen.getByTestId(`${testId}-cell-row-2-col-id`)).toHaveTextContent(
       "3",
     );
     expect(
-      screen.getByTestId(`${testId}-cell-row-1-col-name`),
+      screen.getByTestId(`${testId}-cell-row-2-col-name`),
     ).toHaveTextContent("Sushi");
     expect(
-      screen.getByTestId(`${testId}-cell-row-1-col-diningCommonsCode`),
+      screen.getByTestId(`${testId}-cell-row-2-col-diningCommonsCode`),
     ).toHaveTextContent("carrillo");
-    expect(screen.getByTestId(`${testId}-cell-row-1-col-station`)).toHaveTextContent(
+    expect(screen.getByTestId(`${testId}-cell-row-2-col-station`)).toHaveTextContent(
       "Sushi Bar",
     );
 
@@ -145,28 +158,42 @@ describe("UCSBDiningCommonsMenuItemTable tests", () => {
     });
 
     expect(screen.getByTestId(`${testId}-cell-row-0-col-id`)).toHaveTextContent(
-      "2",
+      "1",
     );
     expect(
       screen.getByTestId(`${testId}-cell-row-0-col-name`),
-    ).toHaveTextContent("Tacos");
+    ).toHaveTextContent("Spaghetti");
     expect(
       screen.getByTestId(`${testId}-cell-row-0-col-diningCommonsCode`),
-    ).toHaveTextContent("portola");
+    ).toHaveTextContent("ortega");
     expect(screen.getByTestId(`${testId}-cell-row-0-col-station`)).toHaveTextContent(
-      "Mexican Station",
+      "Pasta Station",
     );
 
     expect(screen.getByTestId(`${testId}-cell-row-1-col-id`)).toHaveTextContent(
-      "3",
+      "2",
     );
     expect(
       screen.getByTestId(`${testId}-cell-row-1-col-name`),
-    ).toHaveTextContent("Sushi");
+    ).toHaveTextContent("Tacos");
     expect(
       screen.getByTestId(`${testId}-cell-row-1-col-diningCommonsCode`),
-    ).toHaveTextContent("carrillo");
+    ).toHaveTextContent("portola");
     expect(screen.getByTestId(`${testId}-cell-row-1-col-station`)).toHaveTextContent(
+      "Mexican Station",
+    );
+
+
+    expect(screen.getByTestId(`${testId}-cell-row-2-col-id`)).toHaveTextContent(
+      "3",
+    );
+    expect(
+      screen.getByTestId(`${testId}-cell-row-2-col-name`),
+    ).toHaveTextContent("Sushi");
+    expect(
+      screen.getByTestId(`${testId}-cell-row-2-col-diningCommonsCode`),
+    ).toHaveTextContent("carrillo");
+    expect(screen.getByTestId(`${testId}-cell-row-2-col-station`)).toHaveTextContent(
       "Sushi Bar",
     );
 
@@ -191,17 +218,44 @@ describe("UCSBDiningCommonsMenuItemTable tests", () => {
     );
 
     // assert - check that the expected content is rendered
-    expect(
-      await screen.findByTestId(`${testId}-cell-row-0-col-id`),
-    ).toHaveTextContent("2");
+    expect(screen.getByTestId(`${testId}-cell-row-0-col-id`)).toHaveTextContent(
+      "1",
+    );
     expect(
       screen.getByTestId(`${testId}-cell-row-0-col-name`),
-    ).toHaveTextContent("Tacos");
+    ).toHaveTextContent("Spaghetti");
     expect(
       screen.getByTestId(`${testId}-cell-row-0-col-diningCommonsCode`),
-    ).toHaveTextContent("portola");
+    ).toHaveTextContent("ortega");
     expect(screen.getByTestId(`${testId}-cell-row-0-col-station`)).toHaveTextContent(
+      "Pasta Station",
+    );
+
+    expect(screen.getByTestId(`${testId}-cell-row-1-col-id`)).toHaveTextContent(
+      "2",
+    );
+    expect(
+      screen.getByTestId(`${testId}-cell-row-1-col-name`),
+    ).toHaveTextContent("Tacos");
+    expect(
+      screen.getByTestId(`${testId}-cell-row-1-col-diningCommonsCode`),
+    ).toHaveTextContent("portola");
+    expect(screen.getByTestId(`${testId}-cell-row-1-col-station`)).toHaveTextContent(
       "Mexican Station",
+    );
+
+
+    expect(screen.getByTestId(`${testId}-cell-row-2-col-id`)).toHaveTextContent(
+      "3",
+    );
+    expect(
+      screen.getByTestId(`${testId}-cell-row-2-col-name`),
+    ).toHaveTextContent("Sushi");
+    expect(
+      screen.getByTestId(`${testId}-cell-row-2-col-diningCommonsCode`),
+    ).toHaveTextContent("carrillo");
+    expect(screen.getByTestId(`${testId}-cell-row-2-col-station`)).toHaveTextContent(
+      "Sushi Bar",
     );
 
     const editButton = screen.getByTestId(
@@ -214,7 +268,7 @@ describe("UCSBDiningCommonsMenuItemTable tests", () => {
 
     // assert - check that the navigate function was called with the expected path
     await waitFor(() =>
-      expect(mockedNavigate).toHaveBeenCalledWith("/ucsb-dining-commons-menu-items/edit/2"),
+      expect(mockedNavigate).toHaveBeenCalledWith("/ucsb-dining-commons-menu-items/edit/1"),
     );
   });
 
@@ -240,17 +294,17 @@ describe("UCSBDiningCommonsMenuItemTable tests", () => {
     );
 
     // assert - check that the expected content is rendered
-    expect(
-      await screen.findByTestId(`${testId}-cell-row-0-col-id`),
-    ).toHaveTextContent("2");
+    expect(screen.getByTestId(`${testId}-cell-row-0-col-id`)).toHaveTextContent(
+      "1",
+    );
     expect(
       screen.getByTestId(`${testId}-cell-row-0-col-name`),
-    ).toHaveTextContent("Tacos");
+    ).toHaveTextContent("Spaghetti");
     expect(
       screen.getByTestId(`${testId}-cell-row-0-col-diningCommonsCode`),
-    ).toHaveTextContent("portola");
+    ).toHaveTextContent("ortega");
     expect(screen.getByTestId(`${testId}-cell-row-0-col-station`)).toHaveTextContent(
-      "Mexican Station",
+      "Pasta Station",
     );
 
     const deleteButton = screen.getByTestId(
@@ -264,6 +318,6 @@ describe("UCSBDiningCommonsMenuItemTable tests", () => {
     // assert - check that the delete endpoint was called
 
     await waitFor(() => expect(axiosMock.history.delete.length).toBe(1));
-    expect(axiosMock.history.delete[0].params).toEqual({ id: 2 });
+    expect(axiosMock.history.delete[0].params).toEqual({ id: 1 });
   });
 });
