@@ -1,21 +1,22 @@
 import React from "react";
 import { useBackend } from "main/utils/useBackend";
+
 import BasicLayout from "main/layouts/BasicLayout/BasicLayout";
-import RestaurantTable from "main/components/Restaurants/RestaurantTable";
+import UCSBDiningCommonsMenuItemTable from "main/components/UCSBDiningCommonsMenuItem/UCSBDiningCommonsMenuItemTable";
 import { useCurrentUser, hasRole } from "main/utils/useCurrentUser";
 import { Button } from "react-bootstrap";
 
 export default function UCSBDiningCommonsMenuItemIndexPage() {
   const currentUser = useCurrentUser();
-  
+
   const {
-    data: restaurants,
+    data: ucsbDiningCommonsMenuItems,
     error: _error,
     status: _status,
   } = useBackend(
     // Stryker disable next-line all : don't test internal caching of React Query
-    ["/api/restaurants/all"],
-    { method: "GET", url: "/api/restaurants/all" },
+    ["/api/ucsb-dining-commons-menu-items/all"],
+    { method: "GET", url: "/api/ucsb-dining-commons-menu-items/all" },
     // Stryker disable next-line all : don't test default value of empty list
     [],
   );
@@ -25,10 +26,10 @@ export default function UCSBDiningCommonsMenuItemIndexPage() {
       return (
         <Button
           variant="primary"
-          href="/restaurants/create"
+          href="/ucsb-dining-commons-menu-items/create"
           style={{ float: "right" }}
         >
-          Create Restaurant
+          Create UCSB Dining Commons Menu Item
         </Button>
       );
     }
@@ -38,8 +39,8 @@ export default function UCSBDiningCommonsMenuItemIndexPage() {
     <BasicLayout>
       <div className="pt-2">
         {createButton()}
-        <h1>Restaurants</h1>
-        <RestaurantTable restaurants={restaurants} currentUser={currentUser} />
+        <h1>UCSB Dining Commons Menu Items</h1>
+        <UCSBDiningCommonsMenuItemTable ucsbDiningCommonsMenuItems={ucsbDiningCommonsMenuItems} currentUser={currentUser} />
       </div>
     </BasicLayout>
   );
