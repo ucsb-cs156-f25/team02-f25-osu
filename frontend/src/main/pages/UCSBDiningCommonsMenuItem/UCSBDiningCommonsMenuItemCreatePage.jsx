@@ -1,22 +1,23 @@
 import BasicLayout from "main/layouts/BasicLayout/BasicLayout";
-import RestaurantForm from "main/components/Restaurants/RestaurantForm";
+import UCSBDiningCommonsMenuItemForm from "main/components/UCSBDiningCommonsMenuItem/UCSBDiningCommonsMenuItemForm";
 import { Navigate } from "react-router";
 import { useBackendMutation } from "main/utils/useBackend";
 import { toast } from "react-toastify";
 
 export default function UCSBDiningCommonsMenuItemCreatePage({ storybook = false }) {
-  const objectToAxiosParams = (restaurant) => ({
-    url: "/api/restaurants/post",
+  const objectToAxiosParams = (ucsbDiningCommonsMenuItem) => ({
+    url: "/api/ucsb-dining-commons-menu-items/post",
     method: "POST",
     params: {
-      name: restaurant.name,
-      description: restaurant.description,
+      name: ucsbDiningCommonsMenuItem.name,
+      diningCommonsCode: ucsbDiningCommonsMenuItem.diningCommonsCode,
+      station: ucsbDiningCommonsMenuItem.station,
     },
   });
 
-  const onSuccess = (restaurant) => {
+  const onSuccess = (ucsbDiningCommonsMenuItem) => {
     toast(
-      `New restaurant Created - id: ${restaurant.id} name: ${restaurant.name}`,
+      `New menu item Created - id: ${ucsbDiningCommonsMenuItem.id} name: ${ucsbDiningCommonsMenuItem.name}`,
     );
   };
 
@@ -24,24 +25,24 @@ export default function UCSBDiningCommonsMenuItemCreatePage({ storybook = false 
     objectToAxiosParams,
     { onSuccess },
     // Stryker disable next-line all : hard to set up test for caching
-    ["/api/restaurants/all"], // mutation makes this key stale so that pages relying on it reload
+    ["/api/ucsb-dining-commons-menu-items/all"], // mutation makes this key stale so that pages relying on it reload
   );
 
-   const { isSuccess } = mutation;
+  const { isSuccess } = mutation;
 
   const onSubmit = async (data) => {
     mutation.mutate(data);
   };
 
   if (isSuccess && !storybook) {
-    return <Navigate to="/restaurants" />;
+    return <Navigate to="/ucsb-dining-commons-menu-items" />;
   }
 
   return (
     <BasicLayout>
       <div className="pt-2">
-        <h1>Create New Restaurant</h1>
-        <RestaurantForm submitAction={onSubmit} />
+        <h1>Create New Menu Item</h1>
+        <UCSBDiningCommonsMenuItemForm submitAction={onSubmit} />
       </div>
     </BasicLayout>
   );
