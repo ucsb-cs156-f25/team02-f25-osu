@@ -33,8 +33,8 @@ export default function UCSBDiningCommonsMenuItemEditPage({ storybook = false })
     },
     data: {
       name: ucsbDiningCommonsMenuItem.name,
-      diningCommonsCode: ucsbDiningCommonsMenuItem.diningCommonsCode,
       station: ucsbDiningCommonsMenuItem.station,
+      diningCommonsCode: ucsbDiningCommonsMenuItem.diningCommonsCode,
     },
   });
 
