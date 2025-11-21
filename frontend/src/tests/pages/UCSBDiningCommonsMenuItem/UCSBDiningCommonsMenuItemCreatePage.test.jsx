@@ -35,6 +35,10 @@ describe("UCSBDiningCommonsMenuItemCreatePage tests", () => {
 
   beforeEach(() => {
     vi.clearAllMocks();
+describe("UCSBDiningCommonsMenuItemCreatePage tests", () => {
+  const axiosMock = new AxiosMockAdapter(axios);
+
+  const setupUserOnly = () => {
     axiosMock.reset();
     axiosMock.resetHistory();
     axiosMock
@@ -124,4 +128,28 @@ describe("UCSBDiningCommonsMenuItemCreatePage tests", () => {
       );
       expect(mockNavigate).toBeCalledWith({ to: "/ucsb-dining-commons-menu-items" });
     });
+  };
+
+  const queryClient = new QueryClient();
+  test("Renders expected content", async () => {
+    // arrange
+
+    setupUserOnly();
+
+    // act
+    render(
+      <QueryClientProvider client={queryClient}>
+        <MemoryRouter>
+          <UCSBDiningCommonsMenuItemCreatePage />
+        </MemoryRouter>
+      </QueryClientProvider>,
+    );
+
+    // assert
+
+    await screen.findByText("Create page not yet implemented");
+    expect(
+      screen.getByText("Create page not yet implemented"),
+    ).toBeInTheDocument();
+  });
 });
