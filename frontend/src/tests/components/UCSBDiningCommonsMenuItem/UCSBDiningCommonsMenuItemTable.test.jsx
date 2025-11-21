@@ -318,6 +318,10 @@ describe("UCSBDiningCommonsMenuItemTable tests", () => {
     // assert - check that the delete endpoint was called
 
     await waitFor(() => expect(axiosMock.history.delete.length).toBe(1));
+
+    // NEW: assert correct URL → kills mutant
+    expect(axiosMock.history.delete[0].url).toBe("/api/ucsb-dining-commons-menu-items");
+
     expect(axiosMock.history.delete[0].params).toEqual({ id: 1 });
   });
 });
